@@ -14,29 +14,31 @@ code {
 
 /* Drum Machine */
 
-.header-row {
-  display: flex;
-}
-
-.header-cell {
-  width: 22px;
-  /* Same width as the grid cells */
-  text-align: center;
-  /* Center the text in the header cell */
-  /* Additional styling as needed */
-}
-
+.header-row,
 .row {
   display: flex;
 }
 
+.header-label,
+.row-label {
+  width: 50px;
+  /* Width of the label cells */
+  text-align: center;
+  /* Additional styling as needed */
+}
+
+.header-cell,
 .cell {
-  width: 20px;
-  /* Adjust the width of each cell */
+  width: 23px;
+  /* Width of the grid cells */
   height: 20px;
-  border: 1px solid black;
   background-color: #fff;
   cursor: pointer;
+}
+
+.cell {
+  border: 1px solid black;
+  width: 20px;
 }
 
 .cell.active {

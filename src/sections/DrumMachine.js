@@ -18,6 +18,7 @@ const DrumMachine = () => {
     const [currentStep, setCurrentStep] = useState(0);
     const timerRef = useRef(null);
     const currentStepRef = useRef(currentStep);
+    const instrumentNames = ["Kick", "Snare", "Hi-Hat", "Tom 1", "Tom 2"];
 
     const playSound = (sound) => {
         const audio = new Audio(sound);
@@ -73,13 +74,15 @@ const DrumMachine = () => {
     return (
         <div>
             <div className="grid">
-                <div className="row header-row">
+                <div className="header-row">
+                    <div className="header-label"></div> {/* Empty cell for alignment */}
                     {Array.from({ length: numCols }, (_, i) => (
                         <div key={i} className="header-cell">{i % 4 === 0 ? (i / 4 + 1) : ''}</div>
                     ))}
                 </div>
                 {grid.map((row, rowIndex) => (
                     <div key={rowIndex} className="row">
+                        <div className="row-label">{instrumentNames[rowIndex]}</div>
                         {row.map((col, colIndex) => (
                             <div key={colIndex}
                                 className={`cell ${col ? 'active' : ''} ${colIndex === currentStep ? 'current-step' : ''}`}
